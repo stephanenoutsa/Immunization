@@ -55,8 +55,8 @@ public class MyService extends Service {
                     dbContacts = dbHandler.getAllContacts();
                     for(Contact cn : dbContacts) {
                         Toast.makeText(cont, "Checking contacts...", Toast.LENGTH_SHORT).show();
-                        //String url = "http://api.wasamundi.com/v2/texto/send_sms?user=motherslove&api_key=nKjahG4T&from=237676768586&to=237";
-                        String url = "http://api.wasamundi.com/v2/texto/send_sms?user=humphrey&api_key=7vLIs7YY&from=237671960665&to=237";
+                        String url = "http://api.wasamundi.com/v2/texto/send_sms?user=motherslove&api_key=nKjahG4T&from=237676768586&to=237";
+                        //String url = "http://api.wasamundi.com/v2/texto/send_sms?user=humphrey&api_key=7vLIs7YY&from=237671960665&to=237";
                         final String phone = cn.getContactphone();
                         //Toast.makeText(cont, "Phone number is " + phone, Toast.LENGTH_SHORT).show();
                         String dob = cn.getContactdob();
