@@ -11,4 +11,11 @@
     <string name="menu_contacts">Contacts</string>
     <string name="title_activity_contacts">Contacts</string>
     <string name="language_text">French?</string>
+    <string name="welcome_msg_en">
+        WELCOME TO THE MLI FAMILY. WE WILL PROVIDE YOU WITH UPDATES ABOUT YOUR CHILD\'S VACCINATION AND
+        HEALTH UP TO THE AGE OF 1. THANKS FOR BEING A PART OF THIS FAMILY
+    </string>
+    <string name="welcome_msg_fr">
+
+    </string>
 </resources>
