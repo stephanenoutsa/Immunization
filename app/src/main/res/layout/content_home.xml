@@ -72,6 +72,16 @@
             android:id="@+id/hepatitis" />
     </RadioGroup>-->
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dobField"
+        android:layout_centerHorizontal="true"
+        android:text="@string/language_text"
+        android:id="@+id/language"
+        android:layout_marginTop="20dp"
+        android:onClick="languageClicked" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -79,7 +89,7 @@
         android:id="@+id/buttonSave"
         android:layout_marginTop="20dp"
         android:onClick="onClickSave"
-        android:layout_below="@+id/dobField"
+        android:layout_below="@+id/language"
         android:layout_alignLeft="@+id/numberField"
         android:layout_alignStart="@+id/numberField" />
 

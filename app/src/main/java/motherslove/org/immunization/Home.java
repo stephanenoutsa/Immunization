@@ -12,11 +12,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 public class Home extends AppCompatActivity {
 
     EditText numberField, dobField;
+    CheckBox language;
+    String lang;
+    int received = 0;
     MyDBHandler dbHandler;
     AlarmStart alarmStart = new AlarmStart();
 
@@ -39,11 +43,24 @@ public class Home extends AppCompatActivity {
 
         numberField = (EditText) findViewById(R.id.numberField);
         dobField = (EditText) findViewById(R.id.dobField);
+        language = (CheckBox) findViewById(R.id.language);
         dbHandler = new MyDBHandler(this, null, null, 1);
     }
 
+    public void languageClicked(View view) {
+        if (language.isChecked()) {
+            lang = "French";
+        }
+        else {
+            lang = "English";
+        }
+    }
+
     public void onClickSave(View view) {
-        Contact contact = new Contact(numberField.getText().toString(), dobField.getText().toString());
+        // Handle scenario where user does not click checkbox
+        if(lang == null)
+            lang = "English";
+        Contact contact = new Contact(numberField.getText().toString(), dobField.getText().toString(), lang, received);
         dbHandler.addContact(contact);
         numberField.setText("");
         dobField.setText("");
