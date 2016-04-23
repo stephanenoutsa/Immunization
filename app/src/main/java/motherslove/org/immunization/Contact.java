@@ -8,6 +8,8 @@ public class Contact {
     int _contactid;
     String contactphone;
     String contactdob;
+    String contactlanguage;
+    int contactreceived;
 
     // Emptry constructor
     public Contact() {
@@ -15,16 +17,20 @@ public class Contact {
     }
 
     // Constructor
-    public Contact(int _contactid, String contactphone, String contactdob) {
+    public Contact(int _contactid, String contactphone, String contactdob, String contactlanguage, int contactreceived) {
         this._contactid = _contactid;
         this.contactphone = contactphone;
         this.contactdob = contactdob;
+        this.contactlanguage = contactlanguage;
+        this.contactreceived = contactreceived;
     }
 
     // Constructor
-    public Contact(String contactphone, String contactdob) {
+    public Contact(String contactphone, String contactdob, String contactlanguage, int contactreceived) {
         this.contactphone = contactphone;
         this.contactdob = contactdob;
+        this.contactlanguage = contactlanguage;
+        this.contactreceived = contactreceived;
     }
 
     // Getter and Setter methods
@@ -42,6 +48,22 @@ public class Contact {
 
     public void setContactdob(String contactdob) {
         this.contactdob = contactdob;
+    }
+
+    public String getContactlanguage() {
+        return contactlanguage;
+    }
+
+    public void setContactlanguage(String contactlanguage) {
+        this.contactlanguage = contactlanguage;
+    }
+
+    public int getContactreceived() {
+        return contactreceived;
+    }
+
+    public void setContactreceived(int contactreceived) {
+        this.contactreceived = contactreceived;
     }
 
     public String getContactphone() {

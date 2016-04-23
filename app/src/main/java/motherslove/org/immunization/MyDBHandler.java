@@ -14,12 +14,14 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     Context context;
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "contacts.db";
     public static final String TABLE_CONTACTS = "contacts";
     public static final String CONTACT_COLUMN_ID = "_contactid";
     public static final String CONTACT_COLUMN_PHONE = "contactphone";
     public static final String CONTACT_COLUMN_DOB = "contactdob";
+    public static final String CONTACT_COLUMN_LANGUAGE = "contactlanguage";
+    public static final String CONTACT_COLUMN_RECEIVED = "contactreceived";
 
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -31,7 +33,9 @@ public class MyDBHandler extends SQLiteOpenHelper {
         String query = "CREATE TABLE " + TABLE_CONTACTS + "(" +
                 CONTACT_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT " + ", " +
                 CONTACT_COLUMN_PHONE + " TEXT " + ", " +
-                CONTACT_COLUMN_DOB + " DATE" +
+                CONTACT_COLUMN_DOB + " DATE" + ", " +
+                CONTACT_COLUMN_LANGUAGE + " TEXT" + ", " +
+                CONTACT_COLUMN_RECEIVED + " INTEGER" +
                 ")";
         db.execSQL(query);
     }
@@ -47,10 +51,16 @@ public class MyDBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(CONTACT_COLUMN_PHONE, String.valueOf(contact.getContactphone()));
         values.put(CONTACT_COLUMN_DOB, String.valueOf(contact.getContactdob()));
+        values.put(CONTACT_COLUMN_LANGUAGE, String.valueOf(contact.getContactlanguage()));
+        values.put(CONTACT_COLUMN_RECEIVED, contact.getContactreceived());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_CONTACTS, null, values);
         db.close();
-        Toast.makeText(context, "Contact added", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Contact added\nphone: " + String.valueOf(contact.getContactphone()) + "\n" +
+                "dob: " + String.valueOf(contact.getContactdob()) + "\n" +
+                "lang: " + String.valueOf(contact.getContactlanguage()) + "\n" +
+                "received: " + String.valueOf(contact.getContactreceived()),
+                Toast.LENGTH_LONG).show();
     }
 
     // Get single contact from the CONTACTS table
@@ -58,12 +68,14 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor c = db.query(TABLE_CONTACTS, new String[] {CONTACT_COLUMN_ID, CONTACT_COLUMN_PHONE,
-                        CONTACT_COLUMN_DOB}, CONTACT_COLUMN_ID + "=?", new String[] {String.valueOf(id)},
+                        CONTACT_COLUMN_DOB, CONTACT_COLUMN_LANGUAGE, CONTACT_COLUMN_RECEIVED}, CONTACT_COLUMN_ID
+                        + "=?", new String[] {String.valueOf(id)},
                 null, null, null, null);
         if(c != null)
             c.moveToFirst();
 
-        Contact contact = new Contact(Integer.parseInt(c.getString(0)), c.getString(1), c.getString(2));
+        Contact contact = new Contact(Integer.parseInt(c.getString(0)), c.getString(1), c.getString(2),
+                c.getString(3), Integer.parseInt(c.getString(4)));
 
         db.close();
 
@@ -98,6 +110,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
             contact.set_contactid(Integer.parseInt(c.getString(0)));
             contact.setContactphone(c.getString(1));
             contact.setContactdob(c.getString(2));
+            contact.setContactlanguage(c.getString(3));
+            contact.setContactreceived(Integer.parseInt(c.getString(4)));
 
             contactList.add(contact);
 
@@ -128,6 +142,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(CONTACT_COLUMN_PHONE, contact.getContactphone());
         values.put(CONTACT_COLUMN_DOB, contact.getContactdob());
+        values.put(CONTACT_COLUMN_LANGUAGE, String.valueOf(contact.getContactlanguage()));
+        values.put(CONTACT_COLUMN_RECEIVED, contact.getContactreceived());
 
         return db.update(TABLE_CONTACTS, values, CONTACT_COLUMN_ID + "=?",
                 new String[] {String.valueOf(contact.get_contactid())});
