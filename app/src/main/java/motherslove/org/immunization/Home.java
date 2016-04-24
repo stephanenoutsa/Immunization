@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Home extends AppCompatActivity {
 
@@ -62,6 +63,7 @@ public class Home extends AppCompatActivity {
             lang = "English";
         Contact contact = new Contact(numberField.getText().toString(), dobField.getText().toString(), lang, received);
         dbHandler.addContact(contact);
+        Toast.makeText(this, "Contact added", Toast.LENGTH_LONG).show();
         numberField.setText("");
         dobField.setText("");
     }
@@ -69,6 +71,7 @@ public class Home extends AppCompatActivity {
     public void onClickDelete(View view) {
         String contactphone = numberField.getText().toString();
         dbHandler.deleteContact(contactphone);
+        Toast.makeText(this, "Contact " + contactphone + " deleted", Toast.LENGTH_LONG).show();
     }
 
     public void onClickLaunch(View view) {
