@@ -18,4 +18,55 @@
     <string name="welcome_msg_fr">
 
     </string>
+    <string name="msg2_en">
+        CONGRATS for your delivery! We hope baby received his / her 1st vaccines (OPV, BCG). BREASTFEED
+        EXCLUSIVELY for 6 months, DO NOT give water and DO NOT mix feed.
+    </string>
+    <string name="msg2_fr">
+
+    </string>
+    <string name="msg3_en">
+        Report to the nearest health facility if you have any of the following WARNING SIGNS: fever,
+        abdominal pain, blurred vision, excessive bleeding or breast pain.
+    </string>
+    <string name="msg3_fr">
+
+    </string>
+    <string name="msg4_en">
+        Ensure proper hygiene for yourself and your baby to prevent disease. Wash your breast with soap
+        and water before breastfeeding. FAMILY PLANNING is advised.
+    </string>
+    <string name="msg4_fr">
+
+    </string>
+    <string name="msg5_en">
+
+    </string>
+    <string name="msg5_fr">
+
+    </string>
+    <string name="msg6_en">
+
+    </string>
+    <string name="msg6_fr">
+
+    </string>
+    <string name="msg7_en">
+
+    </string>
+    <string name="msg7_fr">
+
+    </string>
+    <string name="msg8_en">
+
+    </string>
+    <string name="msg8_fr">
+
+    </string>
+    <string name="msg9_en">
+
+    </string>
+    <string name="msg9_fr">
+
+    </string>
 </resources>
