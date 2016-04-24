@@ -12,46 +12,6 @@
     tools:context="motherslove.org.immunization.Home"
     tools:showIn="@layout/activity_home">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/enter_number_text"
-        android:id="@+id/enterNumberText"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/numberField"
-        android:layout_below="@+id/enterNumberText"
-        android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/enter_lmp_text"
-        android:id="@+id/enterLmpText"
-        android:layout_below="@+id/numberField"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal" />
-
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/dobField"
-        android:layout_below="@+id/enterLmpText"
-        android:layout_centerHorizontal="true"
-        android:inputType="text"
-        android:gravity="center_horizontal" />
-
     <!--<RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,55 +32,106 @@
             android:id="@+id/hepatitis" />
     </RadioGroup>-->
 
-    <CheckBox
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/dobField"
-        android:layout_centerHorizontal="true"
-        android:text="@string/language_text"
-        android:id="@+id/language"
-        android:layout_marginTop="20dp"
-        android:onClick="languageClicked" />
+        android:id="@+id/scrollView" >
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/save_button_text"
-        android:id="@+id/buttonSave"
-        android:layout_marginTop="20dp"
-        android:onClick="onClickSave"
-        android:layout_below="@+id/language"
-        android:layout_alignLeft="@+id/numberField"
-        android:layout_alignStart="@+id/numberField" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/delete_button_text"
-        android:id="@+id/buttonDelete"
-        android:layout_alignTop="@+id/buttonSave"
-        android:layout_alignRight="@+id/numberField"
-        android:layout_alignEnd="@+id/numberField"
-        android:onClick="onClickDelete" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/enter_number_text"
+                android:id="@+id/enterNumberText"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/launch_button_text"
-        android:id="@+id/button"
-        android:layout_below="@+id/buttonSave"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:onClick="onClickLaunch" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/numberField"
+                android:layout_below="@+id/enterNumberText"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_check_balance_text"
-        android:id="@+id/button2"
-        android:layout_below="@+id/button"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClickCheckBalance" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/enter_lmp_text"
+                android:id="@+id/enterLmpText"
+                android:layout_below="@+id/numberField"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal" />
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/dobField"
+                android:layout_below="@+id/enterLmpText"
+                android:layout_centerHorizontal="true"
+                android:inputType="text"
+                android:gravity="center_horizontal" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dobField"
+                android:layout_centerHorizontal="true"
+                android:text="@string/language_text"
+                android:id="@+id/language"
+                android:layout_marginTop="20dp"
+                android:onClick="languageClicked" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save_button_text"
+                android:id="@+id/buttonSave"
+                android:layout_marginTop="20dp"
+                android:onClick="onClickSave"
+                android:layout_below="@+id/language"
+                android:layout_alignLeft="@+id/numberField"
+                android:layout_alignStart="@+id/numberField" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delete_button_text"
+                android:id="@+id/buttonDelete"
+                android:layout_alignTop="@+id/buttonSave"
+                android:layout_alignRight="@+id/numberField"
+                android:layout_alignEnd="@+id/numberField"
+                android:onClick="onClickDelete" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/launch_button_text"
+                android:id="@+id/button"
+                android:layout_below="@+id/buttonSave"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:onClick="onClickLaunch" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_check_balance_text"
+                android:id="@+id/button2"
+                android:layout_below="@+id/button"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:onClick="onClickCheckBalance" />
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>
