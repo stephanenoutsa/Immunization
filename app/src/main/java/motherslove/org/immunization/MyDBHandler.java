@@ -5,7 +5,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.Cursor;
 import android.content.Context;
 import android.content.ContentValues;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,11 +55,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_CONTACTS, null, values);
         db.close();
-        Toast.makeText(context, "Contact added\nphone: " + String.valueOf(contact.getContactphone()) + "\n" +
-                "dob: " + String.valueOf(contact.getContactdob()) + "\n" +
-                "lang: " + String.valueOf(contact.getContactlanguage()) + "\n" +
-                "received: " + String.valueOf(contact.getContactreceived()),
-                Toast.LENGTH_LONG).show();
     }
 
     // Get single contact from the CONTACTS table
@@ -153,7 +147,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public void deleteContact(String contactphone) {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_CONTACTS + " WHERE " + CONTACT_COLUMN_PHONE + " = " + contactphone + ";");
-        Toast.makeText(context, "Contact \"" + contactphone + "\" deleted", Toast.LENGTH_SHORT).show();
     }
 
 }
