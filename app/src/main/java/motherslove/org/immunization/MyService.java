@@ -66,7 +66,7 @@ public class MyService extends Service {
                         dobDate = sdf.parse(dob);
                         today = new Date();
                         long diffInMs = today.getTime() - dobDate.getTime();
-                        int diff = (int) diffInMs / (1000 * 60 * 60 * 24);
+                        long diff =  diffInMs / (1000 * 60 * 60 * 24);
                         //Toast.makeText(cont, "Diff is " + diff, Toast.LENGTH_SHORT).show();
                         received = cn.getContactreceived();
                         String lang = cn.getContactlanguage();
