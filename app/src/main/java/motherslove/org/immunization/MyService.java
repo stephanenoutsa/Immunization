@@ -73,7 +73,7 @@ public class MyService extends Service {
                         //Toast.makeText(cont, lang, Toast.LENGTH_SHORT).show();
 
                         // Welcome message
-                        if(diff < 366) {
+                        if(diff < 302) {
                             if (received == 0) {
                                 if (lang.equals("English")) {
                                     smsBody += URLEncoder.encode(getResources().getString(R.string.welcome_msg_en), "UTF-8");
@@ -427,6 +427,12 @@ public class MyService extends Service {
                             else {
                                 Toast.makeText(cont, "Skipping...", Toast.LENGTH_SHORT).show();
                             }
+                        }
+
+                        // Delete contact if difference exceeds that required for last message
+                        else if (diff >= 302) {
+                            dbHandler.deleteContact(phone);
+                            Toast.makeText(cont, "Deleting contact...", Toast.LENGTH_SHORT).show();
                         }
 
                         // If contact receives no message
