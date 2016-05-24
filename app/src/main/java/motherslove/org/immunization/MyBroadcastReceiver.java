@@ -20,6 +20,6 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
         context.startService(service);
 
         //Schedule next alarm
-        alarmStart.startAlarm(context);
+        //alarmStart.startAlarm(context); // Needs debugging as it might simulate sending even when data connection is off
     }
 }
